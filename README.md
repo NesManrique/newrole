@@ -9,7 +9,8 @@ Creates a scaffolding for a new ansible role. It was created because the one tha
 Requirements
 ------------
 
-*nix OS - Debian, Ubuntu, CentOS, RedHat, Amazon Linux, etc..		
+\*nix OS - Debian, Ubuntu, CentOS, RedHat, Amazon Linux, etc..		
+Optionally install bump2version for version bumping if you want to change the tags in a much easier way
 
 Role Variables
 --------------
