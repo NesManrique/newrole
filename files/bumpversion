@@ -1,6 +1,6 @@
 #!/bin/bash
 # arguments are: major, minor patch
-#https://github.com/peritus/bumpversion
+#https://github.com/c4urself/bump2version
 function die {
     echo >&2 "$@"
     exit 1
@@ -8,7 +8,7 @@ function die {
 
 function usage
 {
-	echo "usage: bumpversion (patch | minor | major)"
+	echo "usage: bump2version (patch | minor | major)"
 }
 
 case $1 in
@@ -26,9 +26,9 @@ if [ -z "$(git status --porcelain)" ]; then
   #git checkout master
   #git merge develop
   #git checkout develop
-  bumpversion $1
+  bump2version $1
   git add .
-  git commit -m 'bumpversion'
+  git commit -m 'bump2version'
   git push --all
   git push --tags
 else 
