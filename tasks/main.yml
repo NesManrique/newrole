@@ -1,12 +1,12 @@
 ---
 
-- name: check if destination already exists 
+- name: check if destination already exists
   stat: path={{ newrole_dest }}/{{ newrole_name }}
   register: already_exists
   changed_when: false
 
 - name: fail - destination already exists!!
-  fail: 
+  fail:
     msg: "Looks like the destination already exists!!! {{ newrole_dest }}/{{ newrole_name }}  We don't want to overwrite your existing code, so we're going to fail instead. Please check that the destination doesn't exist or remove it if you want to create it anew."
   when: already_exists.stat.exists and not newrole_force
 
@@ -66,12 +66,11 @@
     path={{ newrole_dest }}/{{ newrole_name }}/bumpversion
     mode=0755
 
-- name: create hidden files .travis.yml and .bumpversion.cfg
+- name: create hidden files .gitignore and .bumpversion.cfg
   copy:
     src={{ item }}
     dest={{ newrole_dest }}/{{ newrole_name }}/.{{ item }}
   with_items:
-    - travis.yml
     - bumpversion.cfg
 
 - name: Vagrantfile, test.yml and README.md
@@ -84,7 +83,7 @@
     - README.md
     - LICENSE
     - requirements.yml
-    
+
 - name: tasks/main.yml
   copy:
     src=tasks_main.yml

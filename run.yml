@@ -1,5 +1,5 @@
 ---
 - hosts: all
   gather_facts: no
-  roles: 
-    - role: gotansible.newrole
+  roles:
+    - role: newrole

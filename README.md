@@ -65,5 +65,5 @@ MIT
 Author Information
 ------------------
 
-Created by Franklin Wise in Santa Monica, CA.
+Created by Franklin Wise in Santa Monica, CA. Forked by Nestor Manrique.
 
