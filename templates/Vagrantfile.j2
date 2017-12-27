@@ -25,8 +25,8 @@ Vagrant.configure(VAGRANT_VERSION) do |config|
     {% for box in boxes %}
 	config.vm.define "{{ box.type }}" do |{{ box.type }}|
 		{{ box.type }}.vm.box = "{{ box.box }}"
-		{{ box.type }}.vm.hostname = "{{ newrole_name }}_{{ box.type }}"
-        {{ box.type }}.vm.network :private_network, ip: NETWORK_PREFIX + "{{ loop.index }}"
+		{{ box.type }}.vm.hostname = "{{ newrole_name }}-{{ box.type }}"
+        {{ box.type }}.vm.network :private_network, ip: NETWORK_PREFIX + "{{ loop.index + 9 }}"
         # Run Ansible
 		{{ box.type }}.vm.provision :ansible do |ansible|
 			ansible.playbook = "test.yml"
