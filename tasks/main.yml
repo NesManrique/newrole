@@ -52,7 +52,7 @@
     dest={{ newrole_dest }}/{{ newrole_name }}/{{ item }}
   with_items:
     - ansible.cfg
-    - bumpversion
+    - bump2version
 
 - name: private files gitignore
   copy:
@@ -63,7 +63,7 @@
 
 - name: make bumpversion executable
   file:
-    path={{ newrole_dest }}/{{ newrole_name }}/bumpversion
+    path={{ newrole_dest }}/{{ newrole_name }}/bump2version
     mode=0755
 
 - name: create hidden files .gitignore and .bumpversion.cfg
