@@ -5,3 +5,21 @@ newrole_name: 'myrole'
 newrole_dest: './'
 newrole_force: false #overrite if already exists
 newrole_copyright_owner: gotansible
+
+# default for Vagrantfile
+provider: 'virtualbox'
+prov_cpus: 2
+prov_ram: 1024
+prov_network_prefix: '192.168.10.'
+
+# Search in vagrantcloud for bento, centos or geerlingguy boxes
+boxes:
+  - type: centos6
+    box: 'geerlingguy/centos6'
+    #box: 'bento/centos6.9-i386'
+    #box: 'centos/6'
+  - type: centos7
+    box: 'geerlingguy/centos7'
+    #box: 'bento/centos7.4'
+    #box: 'centos/6'
+

@@ -10,13 +10,22 @@ Requirements
 ------------
 
 \*nix OS - Debian, Ubuntu, CentOS, RedHat, Amazon Linux, etc..		
-Optionally install bump2version for version bumping if you want to change the tags in a much easier way
+Optionally:
+  - Install bump2version for version bumping if you want to change the tags in a much easier way.
+  - Install virtualbox and vagrant to test the roles.
 
 Role Variables
 --------------
 
 newrole_name: the_name_of_the_new_role
 newrole_dest: /the/path/to/create/the/new/role
+provider: default vagrant provider to use (default: virtualbox)
+prov_cpus: number of cpus to assign per box (default: 2) 
+prov_ram: ram in KB to assing per box (default: 1024)
+prov_network_prefix: network prefix for the private network (default: 192.168.10.)
+boxes: dictionary of boxes with type and box name to provision and test, attributes are:
+  - type: osversion
+    box: boxname
 
 Dependencies
 ------------
