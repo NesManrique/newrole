@@ -12,6 +12,8 @@ VAGRANT_VERSION = 2
 
 PROVIDER = "{{ provider }}"
 NETWORK_PREFIX = "192.128.10."
+v_playbook = 'test.yml'
+v_playbook = ENV['ANSIBLE_PLAYBOOK'] if ENV['ANSIBLE_PLAYBOOK']
 
 Vagrant.configure(VAGRANT_VERSION) do |config|
 
@@ -29,7 +31,8 @@ Vagrant.configure(VAGRANT_VERSION) do |config|
         {{ box.type }}.vm.network :private_network, ip: NETWORK_PREFIX + "{{ loop.index + 9 }}"
         # Run Ansible
 		{{ box.type }}.vm.provision :ansible do |ansible|
-			ansible.playbook = "test.yml"
+			ansible.playbook = v_playbook
+      ansible.raw_arguments = Shellwords.shellsplit(ENV['ANSIBLE_ARGS']) if ENV['ANSIBLE_ARGS']
 		end
 	end
     {% endfor %}
