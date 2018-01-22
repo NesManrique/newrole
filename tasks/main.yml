@@ -35,10 +35,6 @@
   with_items:
     - defaults/main.yml
     - handlers/main.yml
-    - tasks/config.yml
-    - tasks/depend.yml
-    - tasks/install.yml
-    - tasks/service.yml
   changed_when: False
 
 - name: meta/main.yml
